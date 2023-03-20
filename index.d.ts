@@ -20,3 +20,12 @@ export interface BonuzJWTPayload extends JWTPayload, UserDetail {
 	bonuzId: number;
 	walletAddress: string;
 }
+
+export type PostedMessage = {
+  bonuzToken: string;
+  name: string;
+  publicAddress: string;
+  privateKey: string;
+  metadataNonce: string;
+  typeOfUser: string;
+}
