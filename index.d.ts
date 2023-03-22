@@ -24,6 +24,8 @@ export interface BonuzJWTPayload extends JWTPayload, UserDetail {
 
 export type authenticationPayload = {
 	idToken: string;
+	provider: string;
+	providerId: string;
 	walletAddress?: string;
 	privateKey?: string;
 };
