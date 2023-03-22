@@ -22,9 +22,9 @@ export interface BonuzJWTPayload extends JWTPayload, UserDetail {
 }
 
 export type authenticationPayload = {
-	bonuzToken: string;
-	walletAddress: string;
-	privateKey: string;
+	idToken: string;
+	walletAddress?: string;
+	privateKey?: string;
 };
 
 declare const DATA = "data";
