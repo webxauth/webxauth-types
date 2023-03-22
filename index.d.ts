@@ -27,18 +27,11 @@ export type authenticationPayload = {
 	privateKey: string;
 };
 
-declare enum WebViewMessageType {
-	ACTION = "action",
-	DATA = "data",
-}
+declare const DATA = "data";
+declare const ACTION = "action";
 
-declare enum WebViewActions {
-	WALLET_CONNECT = "walletConnect",
-}
-
-declare enum WebViewDataNames {
-	AUTHENTICATION = "authentication",
-}
+declare const WALLET_CONNECT = "walletConnect";
+declare const AUTHENTICATION = "authentication";
 
 interface WebViewMessageActionType<target extends string = string> {
 	target: target;
@@ -54,19 +47,19 @@ interface WebViewMessageDataType<
 
 export interface WebViewAuthenticationPayload
 	extends WebViewMessageDataType<
-		WebViewDataNames.AUTHENTICATION,
+		typeof AUTHENTICATION,
 		authenticationPayload & UserDetail
 	> {}
 
 export interface WebViewWalletConnectAction
-	extends WebViewMessageActionType<WebViewActions.WALLET_CONNECT> {}
+	extends WebViewMessageActionType<typeof WALLET_CONNECT> {}
 export interface WebViewMessageAction {
-	type: WebViewMessageType.ACTION;
+	type: typeof ACTION;
 	payload: WebViewWalletConnectAction;
 }
-export interface WebviewMessageData {
-	type: WebViewMessageType.DATA;
+export interface WebViewMessageData {
+	type: typeof DATA;
 	payload: WebViewAuthenticationPayload;
 }
 
-export type WebViewMessage = WebViewMessageAction | WebviewMessageData;
+export type WebViewMessage = WebViewMessageAction | WebViewMessageData;
