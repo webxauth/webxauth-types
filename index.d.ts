@@ -14,6 +14,7 @@ interface UserDetail {
 	profilePicture?: string;
 	handle?: string;
 	providers?: string[];
+	phoneNumber?: string;
 }
 
 export interface BonuzJWTPayload extends JWTPayload, UserDetail {
